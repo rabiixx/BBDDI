@@ -50,13 +50,13 @@ INSERT INTO CLASE VALUES ('D', 180);
 INSERT INTO CLASE VALUES ('E', 365);
 
 /* Ejercicio 1 */
-INSERT INTO USUARIOS VALUES ('E', 365);
+INSERT INTO USUARIOS VALUES ('Antonio', 'Gomez', 'M', 20, 1);
 
+/* Ejercicio 2 */
+INSERT INTO USUARIOS VALUES ('Jon', 'Alkorta', 'M', 10, 2);
 
-
-
-/* LIBROS DATA */
-INSERT INTO LIBROS (TITULO, EDITORIAL, ISBN, ) VALUES ('Fichero', 'Anaya',  );
+/* Ejercicio 3*/
+INSERT INTO LIBROS (TITULO, EDITORIAL, ISBN, ) VALUES ('Fichero', 'Anaya', '1FBD' );
 INSERT INTO LIBROS VALUES ('Bases de Datos', );
 INSERT INTO LIBROS VALUES ('', );
 
