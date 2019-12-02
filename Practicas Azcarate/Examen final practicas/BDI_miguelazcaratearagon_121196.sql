@@ -28,6 +28,11 @@ FROM CARRERA;
 /*No es consistente, ya que en un resultado se muestra que han habido 4 carreras y en otro 5. */
 /*Lo que se debería hacer es revisar la base de datos en el campo TEMPORADA y añadir la carrera que falta*/
 
+
+UPDATE TEMPORADA 
+SET NUMEROCARRERAS = '3'
+WHERE PERIODO = '2017-18';
+
 /*5*/
 
 SELECT P.NOMBRE_ESP, COUNT(C.NOMBRE)TOTAL_CIRCUITOS
