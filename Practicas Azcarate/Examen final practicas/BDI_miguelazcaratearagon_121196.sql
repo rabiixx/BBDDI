@@ -140,8 +140,47 @@ SELECT E.NOMBRE, PE.PERIODO, PA.NOMBRE_ENG, COUNT (PI.CODPILOTO)
 FROM EQUIPO E, PERTENECE PE, PILOTO PI, PAIS PA
 WHERE (E.CODPAIS = PA.CODPAIS) AND (E.NOMBRE = PE.EQUIPO) AND (PE.CODPILOTO = PI.CODPILOTO)
 AND (PE.ROL = 'PO')
-HAVING COUNT (PI.CODPILOTO) > 1
+HAVING COUNT (PI.CODPILOTO) <> 1
 GROUP BY E.NOMBRE, PE.PERIODO,  PA.NOMBRE_ENG;
+
+
+
+
+/* 12 */
+SELECT MIN(CURVAS), MAX(CURVAS)
+FROM CIRCUITO;
+
+
+SELECT PI.NOMBRE, COUNT (*) AS NUMPOLES
+FROM PILOTO PI, PARTICIPA PA
+WHERE (PI.CODPILOTO = PA.CODPILOTO) AND (PA.POSICION_LLEGADA < 4)
+HAVING COUNT (*) > 3
+GROUP BY PI.NOMBRE;
+
+
+/* 14 */
+SELECT  pi.nombre, ca.fechacarrera, ca.nombre_gp, abs(pa.posicion_llegada -  pa.posicion_salida)
+FROM CARRERA CA, piloto pi, participa pa
+where (pa.codpiloto = pi.codpiloto) and (pa.fechacarrera = ca.fechacarrera) and (pa.posicion_llegada <  pa.posicion_salida)
+group by  pi.nombre, ca.fechacarrera, ca.nombre_gp, pi.nombre, pa.posicion_llegada, pa.posicion_salida;
+
+/* 15 */
+select /*distinct*/ pi.nombre, pa1.nombre_eng as Pais_Pilito, ci.nombre, pa2.nombre_eng as Pais_Circuito
+from piloto pi, circuito ci, pais pa1, pais pa2, participa par, carrera ca
+where (pi.codpiloto = par.codpiloto) and (par.fechacarrera = ca.fechacarrera) and (ca.circuito = ci.nombre) and (pi.codpais = pa1.codpais) and (pa2.codpais = ci.codpais)
+--where (pi.codpais = pa1.codpais) and (pa2.codpais = ci.codpais)
+order by pi.nombre, pa2.nombre_eng;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
