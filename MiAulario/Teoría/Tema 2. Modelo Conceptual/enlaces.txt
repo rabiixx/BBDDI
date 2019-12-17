@@ -1,0 +1,2 @@
+Consulta datos del catálogo:
+https://stackoverflow.com/questions/51941149/postgresql-query-all-tables-all-table-columns
